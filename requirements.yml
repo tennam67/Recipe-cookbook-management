@@ -1,8 +1,11 @@
-name: DRF
+name: DRF_CUSTOM_USER_MODEL
 dependencies:
   - python=3.9
   - pip=21.0
   - pip:
       - Django==3.1
       - djangorestframework==3.12
-      - djangorestframework_simplejwt==4.6
+      - PyJWT==1.7.1
+      - Pillow==8.1
+      - drf-yasg==1.20.0
+

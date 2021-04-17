@@ -1,13 +1,16 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 
-
 # Create your models here.
+from ingredients.models import Ingredient
+
+User = get_user_model()
+
 
 class Recipe(models.Model):
     title = models.CharField(max_length=128, blank=False)
     description = models.CharField(max_length=255, blank=False)
-    ingredients = models.CharField(max_length=255, blank=True)
+    ingredients = models.ManyToManyField(to=Ingredient, related_name="ingredients", blank=True)
     difficulty = models.CharField(max_length=32, choices=[
         ("Easy", "Easy"),
         ("Intermediate", "Intermediate"),
